@@ -1,1 +1,5 @@
 # staging hosts
+[test_hosts]
+svr1.simnonello.local
+svr2.simnonello.local
+svr3.simnonello.local
