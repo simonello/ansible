@@ -1,0 +1,9 @@
+---
+# playbook for common server tier
+- name: common playbook
+  hosts: test_hosts
+  remote_user: ansible
+  become: yes
+
+  roles:
+        - common
