@@ -1,0 +1,21 @@
+---
+# tasks file for common
+- name: install and update common packages
+  yum:
+    name: ['bash', 'curl', 'git', 'openssl', 'sudo', 'udev', 'yum' ]
+    state: latest
+    update_cache: yes
+
+- name: configure ntp
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+  notify:
+    - restart ntpd
+
+- name: ensure ntpd is up and running
+  service:
+    name: ntpd
+    state: started
+    enabled: yes
+  tags: ntp
